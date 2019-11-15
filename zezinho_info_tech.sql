@@ -22,7 +22,7 @@ SET time_zone = "+00:00";
 -- Banco de dados: `zezinho_info_tech`
 --
 
-CREATE DATABASE zezinho_info_tech;
+-- --------------------------------------------------------
 
 --
 -- Estrutura da tabela `usuarios`

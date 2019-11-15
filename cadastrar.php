@@ -8,39 +8,26 @@
 </head>
 <body>
     <div class="container">
-        <h3>Consulta de Usuários</h3>
-        <hr>
-        <?php
-        include_once 'conexao.php';
-        $sql = "SELECT nome, email, login, perfil FROM usuarios";
-        $result = mysqli_query($con, $sql);
-        if(mysqli_num_rows($result) > 0){?>
-            <table class="table table-hover">
-                <tr>
-                    <th>Nome</th>
-                    <th>E-mail</th>
-                    <th>Login</th>
-                    <th>Perfil</th>
-                </tr>
-                    
-        <?php
-            while($row = mysqli_fetch_array($result)){
-            echo "<tr>";
-            echo "<td>{$row['nome']}</td>";
-            echo "<td>{$row['email']}</td>";
-            echo "<td>{$row['login']}</td>";
-            echo "<td>{$row['perfil']}</td>";
-            echo "</tr>";
-            }     
-        ?>
-        </table>
-                <?php
-                }else{
-                    echo "Nenhum registro encontrado!";
-                }  
-                mysqli_close($con);          
-        ?>
-        <a href="index.php">Painel</a>
+       <h3>Cadastro de Usuários</h3>
+       <hr>
+        <form action="gravar.php" method="post">
+            <label>Nome: </label>
+            <input type="text" name="nome" class="form-control col-md-4">
+            <label>E-mail: </label>
+            <input type="email" name="email" class="form-control col-md-4">
+            <label>Login: </label>
+            <input type="text" name="login" class="form-control col-md-4">
+            <label>Senha: </label>
+            <input type="password" name="senha" class="form-control col-md-4">
+            <label>Perfil: </label>
+            <select name="perfil" class="form-control col-md-4">
+                <option disable selected>-Escolha uma opção-</option>
+                <option value="admin">Administrador</option>
+                <option value="user">Usuário</option>
+            </select><br>
+            <input type="submit" value="Enviar" class="btn btn-success">
+        </form><br>
+        <a href="painel.php">Painel Inicial</a>
     </div>
 </body>
 </html>
